@@ -1,27 +1,19 @@
 'use strict';
-const { DataTypes } = require('sequelize');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Ubicaciones', {
+    await queryInterface.createTable('ActivoTags', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      descripcion: {
-        type: DataTypes.STRING,
-      allowNull: false
+      activoId: {
+        type: Sequelize.INTEGER
       },
-      activoAsociados: {
-        type: DataTypes.STRING,
-        allowNull: true
-            },
-      imagen: {
-        type: DataTypes.BLOB,
-        allowNull: true
+      tagId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Ubicacions');
+    await queryInterface.dropTable('ActivoTags');
   }
 };

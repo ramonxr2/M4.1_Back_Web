@@ -29,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Responsable',
-    // Optionally, define additional model options here
   });
 
   return Responsable;
