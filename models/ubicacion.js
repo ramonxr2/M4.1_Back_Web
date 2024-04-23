@@ -4,7 +4,13 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Ubicacion extends Model {
     static associate(models) {
-      // Define associations here if needed
+      // Falta asociar ubicaciones con los activos
+      Ubicacion.belongsTo(models.Activo, {
+        foreignKey: 'activoAsociados',
+        targetKey: 'descripcion', // Campo en Activo que se relaciona con activoAsociados en Ubicacion
+        as: 'activo' // Alias para acceder a la relación
+      });
+      
     }
   }
 
@@ -30,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
     plural: 'ubicaciones'  
     }
     
-    // Optionally, define additional model options here
   });
 
   return Ubicacion;

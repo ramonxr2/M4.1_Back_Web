@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'activoId', // Clave foránea en la tabla intermedia para el ID del activo
         otherKey: 'tagId' // Clave foránea en la tabla intermedia para el ID de la etiqueta
       });
+   
     }
   }
 

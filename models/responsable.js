@@ -4,7 +4,15 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Responsable extends Model {
     static associate(models) {
-      // Define associations here if needed
+      // Asociar el responsable con activos
+      Responsable.belongsToMany(models.Activo, {
+        through: 'ResponsableActivo', // Nombre de la tabla intermedia
+        foreignKey: 'responsableId', // Clave foránea en la tabla intermedia para el ID del responsable
+        otherKey: 'activoId', // Clave foránea en la tabla intermedia para el ID del activo
+        as: 'activosEnCustodia', // Alias para acceder a la relación
+        constraints: false // Desactivar las restricciones de clave foránea
+      });
+      
     }
   }
 
