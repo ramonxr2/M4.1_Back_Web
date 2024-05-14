@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         through: 'ResponsableActivo', // Nombre de la tabla intermedia
         foreignKey: 'responsableId', // Clave foránea en la tabla intermedia para el ID del responsable
         otherKey: 'activoId', // Clave foránea en la tabla intermedia para el ID del activo
-        as: 'activosEnCustodia', // Alias para acceder a la relación
+        as: 'activosResponsable', // Alias para acceder a la relación
         constraints: false // Desactivar las restricciones de clave foránea
       });
       
